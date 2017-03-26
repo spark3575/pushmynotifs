@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B0F025221E877271007BEEEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F025211E877271007BEEEF /* AppDelegate.swift */; };
-		B0F025241E877271007BEEEF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F025231E877271007BEEEF /* ViewController.swift */; };
+		B0F025241E877271007BEEEF /* NotifVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F025231E877271007BEEEF /* NotifVC.swift */; };
 		B0F025271E877271007BEEEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0F025251E877271007BEEEF /* Main.storyboard */; };
 		B0F025291E877271007BEEEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0F025281E877271007BEEEF /* Assets.xcassets */; };
 		B0F0252C1E877271007BEEEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0F0252A1E877271007BEEEF /* LaunchScreen.storyboard */; };
@@ -21,7 +21,7 @@
 		9A33245051666A6E95AD9B70 /* Pods_pushmynotifs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pushmynotifs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0F0251E1E877271007BEEEF /* pushmynotifs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pushmynotifs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0F025211E877271007BEEEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B0F025231E877271007BEEEF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B0F025231E877271007BEEEF /* NotifVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifVC.swift; sourceTree = "<group>"; };
 		B0F025261E877271007BEEEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B0F025281E877271007BEEEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0F0252B1E877271007BEEEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +51,49 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B03F90461E8813C7005FF6FF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B0F025211E877271007BEEEF /* AppDelegate.swift */,
+				B0F025231E877271007BEEEF /* NotifVC.swift */,
+				B0F0252D1E877271007BEEEF /* Info.plist */,
+				B0F025331E87730F007BEEEF /* GoogleService-Info.plist */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		B03F90471E8813E8005FF6FF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B0F025251E877271007BEEEF /* Main.storyboard */,
+				B0F0252A1E877271007BEEEF /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		B03F90481E881413005FF6FF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B03F90491E88141D005FF6FF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B0F025351E878382007BEEEF /* pushmynotifs.entitlements */,
+				B0F025281E877271007BEEEF /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		B03F904A1E881438005FF6FF /* Util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
 		B0F025151E877271007BEEEF = {
 			isa = PBXGroup;
 			children = (
@@ -72,14 +115,11 @@
 		B0F025201E877271007BEEEF /* pushmynotifs */ = {
 			isa = PBXGroup;
 			children = (
-				B0F025351E878382007BEEEF /* pushmynotifs.entitlements */,
-				B0F025211E877271007BEEEF /* AppDelegate.swift */,
-				B0F025231E877271007BEEEF /* ViewController.swift */,
-				B0F025251E877271007BEEEF /* Main.storyboard */,
-				B0F025281E877271007BEEEF /* Assets.xcassets */,
-				B0F0252A1E877271007BEEEF /* LaunchScreen.storyboard */,
-				B0F0252D1E877271007BEEEF /* Info.plist */,
-				B0F025331E87730F007BEEEF /* GoogleService-Info.plist */,
+				B03F90481E881413005FF6FF /* Model */,
+				B03F90471E8813E8005FF6FF /* View */,
+				B03F90461E8813C7005FF6FF /* Controller */,
+				B03F90491E88141D005FF6FF /* Resources */,
+				B03F904A1E881438005FF6FF /* Util */,
 			);
 			path = pushmynotifs;
 			sourceTree = "<group>";
@@ -223,7 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0F025241E877271007BEEEF /* ViewController.swift in Sources */,
+				B0F025241E877271007BEEEF /* NotifVC.swift in Sources */,
 				B0F025221E877271007BEEEF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
