@@ -16,7 +16,7 @@ class NotifVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        FIRMessaging.messaging().subscribe(toTopic: "/topics/news")
+        Messaging.messaging().subscribe(toTopic: "/topics/news")
     }
 }
 

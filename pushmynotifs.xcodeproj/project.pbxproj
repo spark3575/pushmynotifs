@@ -54,10 +54,7 @@
 		B03F90461E8813C7005FF6FF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B0F025211E877271007BEEEF /* AppDelegate.swift */,
 				B0F025231E877271007BEEEF /* NotifVC.swift */,
-				B0F0252D1E877271007BEEEF /* Info.plist */,
-				B0F025331E87730F007BEEEF /* GoogleService-Info.plist */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -65,8 +62,6 @@
 		B03F90471E8813E8005FF6FF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B0F025251E877271007BEEEF /* Main.storyboard */,
-				B0F0252A1E877271007BEEEF /* LaunchScreen.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -81,8 +76,6 @@
 		B03F90491E88141D005FF6FF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B0F025351E878382007BEEEF /* pushmynotifs.entitlements */,
-				B0F025281E877271007BEEEF /* Assets.xcassets */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -90,6 +83,12 @@
 		B03F904A1E881438005FF6FF /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				B0F025211E877271007BEEEF /* AppDelegate.swift */,
+				B0F025281E877271007BEEEF /* Assets.xcassets */,
+				B0F0252A1E877271007BEEEF /* LaunchScreen.storyboard */,
+				B0F0252D1E877271007BEEEF /* Info.plist */,
+				B0F025331E87730F007BEEEF /* GoogleService-Info.plist */,
+				B0F025351E878382007BEEEF /* pushmynotifs.entitlements */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -115,6 +114,7 @@
 		B0F025201E877271007BEEEF /* pushmynotifs */ = {
 			isa = PBXGroup;
 			children = (
+				B0F025251E877271007BEEEF /* Main.storyboard */,
 				B03F90481E881413005FF6FF /* Model */,
 				B03F90471E8813E8005FF6FF /* View */,
 				B03F90461E8813C7005FF6FF /* Controller */,
@@ -389,6 +389,7 @@
 				CODE_SIGN_ENTITLEMENTS = pushmynotifs/pushmynotifs.entitlements;
 				DEVELOPMENT_TEAM = 775A96F2SV;
 				INFOPLIST_FILE = pushmynotifs/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shinDev.pushmynotifs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -404,6 +405,7 @@
 				CODE_SIGN_ENTITLEMENTS = pushmynotifs/pushmynotifs.entitlements;
 				DEVELOPMENT_TEAM = 775A96F2SV;
 				INFOPLIST_FILE = pushmynotifs/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shinDev.pushmynotifs;
 				PRODUCT_NAME = "$(TARGET_NAME)";

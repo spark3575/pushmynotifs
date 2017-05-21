@@ -10,9 +10,10 @@ import UIKit
 import Firebase
 import FirebaseInstanceID
 import FirebaseMessaging
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
@@ -20,19 +21,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        if #available(iOS 8.0, *) {
-            let settings: UIUserNotificationSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-            application.registerUserNotificationSettings(settings)
-            application.registerForRemoteNotifications()
+        if #available(iOS 10.0, *) {
+            // For iOS 10 display notification (sent via APNS)
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
+                // Enable or disable features based on authorization.
+            }
         } else {
-            let types: UIRemoteNotificationType = [.alert, .badge, .sound]
-            application.registerForRemoteNotifications(matching: types)
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
         }
         
-        FIRApp.configure()
+        application.registerForRemoteNotifications()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.tokenRefreshNotification(notification:)), name: NSNotification.Name.firInstanceIDTokenRefresh, object: nil)
-        
+        FirebaseApp.configure()
         return true
     }
 
@@ -45,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         
-        FIRMessaging.messaging().disconnect()
+        disconnect()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -63,20 +66,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func tokenRefreshNotification(notification: NSNotification) {
-        let refreshedToken = FIRInstanceID.instanceID().token()
-        print("InstanceID token: \(refreshedToken)")
+        let refreshedToken = InstanceID.instanceID().token()
+        print("InstanceID token: \(String(describing: refreshedToken))")
         
         connectToFCM()
     }
 
     func connectToFCM() {
-        FIRMessaging.messaging().connect { (error) in
-            if error != nil {
-                print("Unable to connect to FCM \(error)")
-            } else {
-                print("Connected to FCM")
-            }
-        }
+        Messaging.messaging().shouldEstablishDirectChannel = true
+    }
+    
+    func disconnect() {
+        Messaging.messaging().shouldEstablishDirectChannel = false
     }
 }
 
